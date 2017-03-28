@@ -26,13 +26,13 @@ done
 
 
 echo "check python3 packages"
-PACKAGES=(xkit py2cytoscape)
+PACKAGES=(xkit py2cytoscape ipython)
 for package in ${PACKAGES[@]}; do
 	pip3 list | grep $package > /dev/null 2>&1
 	if [ $? -ne 0 ];then
-		m="$package not installed. sudo pip3 install -y $package."
+		m="$package not installed. sudo pip3 install $package."
 		log_info "$m"
-		#sudo pip3 install -y $package
+		sudo pip3 install $package
 	else
 		m="$package already installed."
 		log_info "$m"
