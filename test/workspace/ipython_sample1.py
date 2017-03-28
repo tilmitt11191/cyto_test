@@ -1,3 +1,4 @@
+
 from py2cytoscape.data.cyrest_client import CyRestClient
 
 cy = CyRestClient(ip='127.0.0.1', port=1234)
