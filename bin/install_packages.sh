@@ -26,13 +26,13 @@ done
 
 
 echo "check python3 packages"
-PACKAGES=(xkit py2cytoscape ipython)
+PACKAGES=(xkit py2cytoscape ipython community matplotlib python3-tk)
 for package in ${PACKAGES[@]}; do
 	pip3 list | grep $package > /dev/null 2>&1
 	if [ $? -ne 0 ];then
 		m="$package not installed. sudo pip3 install $package."
 		log_info "$m"
-		sudo pip3 install $package
+		sudo pip3 install $package > /dev/null 2>&1
 	else
 		m="$package already installed."
 		log_info "$m"
